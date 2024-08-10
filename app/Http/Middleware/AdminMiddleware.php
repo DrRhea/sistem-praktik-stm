@@ -16,9 +16,11 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-      if (Auth::user()->role != 'admin' && Auth::user()->role != 'pengajar')
+      $user = Auth::user();
+
+      if ($user->role != 'admin' && $user->role != 'pengajar')
         return redirect(route('siswa'));
-      else if (Auth::user()->role != 'admin' && Auth::user()->role != 'siswa')
+      else if ($user->role != 'admin' && $user->role != 'siswa')
         return redirect(route('pengajar'));
 
         return $next($request);
