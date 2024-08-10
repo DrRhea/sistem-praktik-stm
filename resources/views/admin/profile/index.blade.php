@@ -53,7 +53,7 @@
                   </div>
                 </div>
               </div>
-
+              
               <div class="flex mt-8">
                 <button type="submit" class="px-3 py-2 text-sm font-semibold text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Simpan</button>
               </div>
@@ -95,7 +95,6 @@
               </div>
             </form>
           </div>
-
           <div class="grid grid-cols-1 px-4 py-16 max-w-7xl gap-x-8 gap-y-10 sm:px-6 md:grid-cols-3 lg:px-8">
             <div>
               <h2 class="text-base font-semibold leading-7 text-white">Hapus Akun</h2>
