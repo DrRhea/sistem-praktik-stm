@@ -1,6 +1,13 @@
 <?php
 
   use App\Http\Controllers\Admin\AdminController;
+  use App\Http\Controllers\Admin\AdminJadwalController;
+  use App\Http\Controllers\Admin\AdminKelasController;
+  use App\Http\Controllers\Admin\AdminNilaiController;
+  use App\Http\Controllers\Admin\AdminPengajarController;
+  use App\Http\Controllers\Admin\AdminPraktikController;
+  use App\Http\Controllers\Admin\AdminProfileController;
+  use App\Http\Controllers\Admin\AdminSiswaController;
   use App\Http\Controllers\Auth\LoginController;
   use App\Http\Controllers\Auth\LogoutController;
   use App\Http\Controllers\Auth\RegisterController;
@@ -24,6 +31,21 @@
 // Routes untuk Admin
   Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
+
+    Route::get('praktik/', [AdminPraktikController::class, 'index'])->name('admin.praktik');
+
+    Route::get('kelas/', [AdminKelasController::class, 'index'])->name('admin.kelas');
+
+    Route::get('jadwal/', [AdminJadwalController::class, 'index'])->name('admin.jadwal');
+
+    Route::get('siswa/', [AdminSiswaController::class, 'index'])->name('admin.siswa');
+
+    Route::get('nilai/', [AdminNilaiController::class, 'index'])->name('admin.nilai');
+
+    Route::get('pengajar/', [AdminPengajarController::class, 'index'])->name('admin.pengajar');
+
+    Route::get('profile/', [AdminProfileController::class, 'index'])->name('admin.profile');
+    Route::put('profile/', [AdminProfileController::class, 'update'])->name('admin.profile.update');
   });
 
 // Routes untuk Siswa
