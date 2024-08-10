@@ -17,8 +17,8 @@ class SiswaMiddleware
     public function handle(Request $request, Closure $next): Response
     {
       if (Auth::user()->role != 'siswa' && Auth::user()->role != 'admin')
-        return redirect(route(''));
+        return redirect(route('pengajar'));
       else if (Auth::user()->role != 'siswa' && Auth::user()->role != 'pengajar')
-        return redirect(route(''));
+        return redirect(route('admin'));
     }
 }

@@ -2,6 +2,7 @@
 
   use App\Http\Controllers\Admin\AdminController;
   use App\Http\Controllers\Auth\LoginController;
+  use App\Http\Controllers\Auth\LogoutController;
   use App\Http\Controllers\Auth\RegisterController;
   use App\Http\Controllers\Pengajar\PengajarController;
   use App\Http\Controllers\Siswa\SiswaController;
@@ -16,6 +17,10 @@
     Route::post('auth/register/', [RegisterController::class, 'register'])->name('register.post');
   });
 
+  Route::middleware(['auth'])->group(function () {
+    Route::post('/', [LogoutController::class, 'logout'])->name('logout.post');
+  });
+
 // Routes untuk Admin
   Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
@@ -26,11 +31,8 @@
     Route::get('/', [SiswaController::class, 'index'])->name('siswa');
   });
 
-  Route::get('/test', function () {
-    return view('admin.index');
-  });
-
 // Routes untuk Pengajar
   Route::prefix('pengajar')->middleware(['auth', 'pengajar'])->group(function () {
     Route::get('/', [PengajarController::class, 'index'])->name('pengajar');
   });
+

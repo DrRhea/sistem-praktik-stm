@@ -17,9 +17,9 @@ class PengajarMiddleware
     public function handle(Request $request, Closure $next): Response
     {
       if (Auth::user()->role != 'pengajar' && Auth::user()->role != 'admin')
-        return redirect(route(''));
+        return redirect(route('siswa'));
       else if (Auth::user()->role != 'pengajar' && Auth::user()->role != 'siswa')
-        return redirect(route(''));
+        return redirect(route('admin'));
 
         return $next($request);
     }

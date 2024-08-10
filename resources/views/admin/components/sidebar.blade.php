@@ -90,9 +90,12 @@
             <span class="sr-only">Your profile</span>
             <span aria-hidden="true">Tom Cook</span>
           </a>
-          <button type="" class="w-full gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-red-600 hover:bg-red-500/20">
-            <span aria-hidden="true">Keluar</span>
-          </button>
+          <form action="{{ route('logout.post') }}" method="POST">
+            @csrf
+            <button type="" class="w-full gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-red-600 hover:bg-red-500/20">
+              <span aria-hidden="true">Keluar</span>
+            </button>
+          </form>
         </li>
       </ul>
     </nav>
