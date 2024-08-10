@@ -13,28 +13,15 @@
   <!-- Mobile Navbar -->
   @include('admin.components.navbar')
 
-
-
   <!-- Desktop Sidebar -->
   @include('admin.components.sidebar')
 
-  <div class="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
-    <button type="button" class="-m-2.5 p-2.5 text-gray-400 lg:hidden" @click="open = true">
-      <span class="sr-only">Open sidebar</span>
-      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-      </svg>
-    </button>
-    <div class="flex-1 text-sm font-semibold leading-6 text-white">Dashboard</div>
-    <a href="#">
-      <span class="sr-only">Your profile</span>
-      <img class="h-8 w-8 rounded-full bg-gray-800" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
-    </a>
-  </div>
+  <!-- Desktop Sidebar -->
+  @include('admin.components.header')
 
   <main class="py-10 lg:pl-72">
     <div class="px-4 sm:px-6 lg:px-8">
-      <div class="relative flex justify-center overflow-hidden rounded-xl opacity-75">
+      <div class="relative flex justify-center overflow-hidden rounded-xl">
         <div class="divide-y divide-white/5">
           <div class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
             <div>
@@ -55,14 +42,14 @@
                 <div class="col-span-full">
                   <label for="nama_lengkap" class="block text-sm font-medium leading-6 text-white">Nama Lengkap</label>
                   <div class="mt-2">
-                    <input id="nama_lengkap" name="nama_lengkap" type="text" class="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                    <input id="nama_lengkap" name="nama_lengkap" type="text" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" value="{{ $admin->user->nama_lengkap }}">
                   </div>
                 </div>
 
                 <div class="col-span-full">
                   <label for="email" class="block text-sm font-medium leading-6 text-white">Email address</label>
                   <div class="mt-2">
-                    <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                    <input id="email" name="email" type="text" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" value="{{ $admin->user->email }}">
                   </div>
                 </div>
               </div>
@@ -84,21 +71,21 @@
                 <div class="col-span-full">
                   <label for="current-password" class="block text-sm font-medium leading-6 text-white">Current password</label>
                   <div class="mt-2">
-                    <input id="current-password" name="current_password" type="password" autocomplete="current-password" class="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                    <input id="current-password" name="current_password" type="password" autocomplete="current-password" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
                   </div>
                 </div>
 
                 <div class="col-span-full">
                   <label for="new-password" class="block text-sm font-medium leading-6 text-white">New password</label>
                   <div class="mt-2">
-                    <input id="new-password" name="new_password" type="password" autocomplete="new-password" class="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                    <input id="new-password" name="new_password" type="password" autocomplete="new-password" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
                   </div>
                 </div>
 
                 <div class="col-span-full">
                   <label for="confirm-password" class="block text-sm font-medium leading-6 text-white">Confirm password</label>
                   <div class="mt-2">
-                    <input id="confirm-password" name="confirm_password" type="password" autocomplete="new-password" class="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                    <input id="confirm-password" name="confirm_password" type="password" autocomplete="new-password" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
                   </div>
                 </div>
               </div>

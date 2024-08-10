@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Admin;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,10 +17,19 @@ class PengajarMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-      if (Auth::user()->role != 'pengajar' && Auth::user()->role != 'admin')
+      $user = Auth::user();
+
+      if ($user->role != 'pengajar' && $user->role != 'admin') {
         return redirect(route('siswa'));
-      else if (Auth::user()->role != 'pengajar' && Auth::user()->role != 'siswa')
+      } else if ($user->role != 'pengajar' && $user->role != 'siswa') {
+        $admin = Admin::where('user_id', $user->id)->first();
+
+        if($admin && $admin->status == 'pending') {
+          return redirect(route('admin.pending'));
+        }
+
         return redirect(route('admin'));
+      }
 
         return $next($request);
     }
