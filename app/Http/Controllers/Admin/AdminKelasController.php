@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 
 class AdminKelasController extends Controller
@@ -10,9 +11,10 @@ class AdminKelasController extends Controller
   /**
    * Display a listing of the resource.
    */
-  public function index()
-  {
-    //
+  public function index() {
+    $kelas = Kelas::get();
+
+    return view('admin.kelas.index', compact('kelas'));
   }
 
   /**

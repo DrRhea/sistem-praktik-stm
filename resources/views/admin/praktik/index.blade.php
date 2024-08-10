@@ -42,6 +42,7 @@
                       <table class="min-w-full divide-y divide-gray-700">
                         <thead>
                         <tr>
+                          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">No.</th>
                           <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">Nama Guru</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Jurusan</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Judul</th>
@@ -55,6 +56,9 @@
                         <tbody class="divide-y divide-gray-800">
                         @forelse($praktiks as $praktik)
                         <tr>
+                          <td class="py-4 pl-4 pr-3 text-sm font-medium text-white whitespace-nowrap sm:pl-0">
+                            {{ $loop->iteration }}
+                          </td>
                           <td class="py-4 pl-4 pr-3 text-sm font-medium text-white whitespace-nowrap sm:pl-0">
                             {{ $praktik->pengajar->user->nama_lengkap }}
                           </td>

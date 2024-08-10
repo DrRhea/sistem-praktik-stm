@@ -42,6 +42,7 @@
                       <table class="min-w-full divide-y divide-gray-700">
                         <thead>
                         <tr>
+                          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">No.</th>
                           <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">Kelas</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Jurusan</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Aksi</th>
@@ -52,19 +53,16 @@
                         </thead>
                         <!-- UBAH YA PAK ISINYA -->
                         <tbody class="divide-y divide-gray-800">
-                        @forelse($praktiks as $praktik)
+                        @forelse($kelas as $kls)
                         <tr>
                           <td class="py-4 pl-4 pr-3 text-sm font-medium text-white whitespace-nowrap sm:pl-0">
-                            {{ $praktik->pengajar->user->nama_lengkap }}
+                            {{ $loop->iteration }}
                           </td>
-                          <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
-                            {{ $praktik->kelas->kelas }} - {{ $praktik->kelas->jurusan }}
+                          <td class="py-4 pl-4 pr-3 text-sm font-medium text-white whitespace-nowrap sm:pl-0">
+                            {{ $kls->kelas }}
                           </td>
-                          <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
-                            {{ $praktik->judul }}
-                          </td>
-                          <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
-                            {{ $praktik->deskripsi }}
+                          <td class="px-3 w-full py-4 text-sm text-gray-300 whitespace-nowrap">
+                            {{ $kls->jurusan }}
                           </td>
                           <td class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
                               <span class="inline-flex rounded-md shadow-sm isolate">
