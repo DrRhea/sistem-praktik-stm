@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('praktiks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pengajar_id')->constrained('pengajars');
+            $table->foreignId('kelas_id')->constrained('kelas');
             $table->string('judul');
             $table->longText('deskripsi');
             $table->timestamps();
