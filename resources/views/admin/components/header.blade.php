@@ -8,6 +8,6 @@
   <div class="flex-1 text-sm font-semibold leading-6 text-white">Dashboard</div>
   <a href="#">
     <span class="sr-only">Your profile</span>
-    <img class="h-8 w-8 rounded-full bg-gray-800" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+    <img class="h-8 w-8 rounded-full bg-gray-800" src="{{ Auth::user()->foto_profile ? '' : asset('img/photo_profile/default.png') }}" alt="">
   </a>
 </div>

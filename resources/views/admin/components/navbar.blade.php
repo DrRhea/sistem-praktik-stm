@@ -79,6 +79,15 @@
                 </li>
               </ul>
             </li>
+            <li>
+              <form action="{{ route('logout.post') }}" method="POST">
+                @csrf
+                <button type="" class="w-full px-6 py-3 text-sm font-semibold leading-6 rounded-lg text-red-600 gap-x-4 bg-red-500/20 hover:bg-red-500/10">
+                  <span aria-hidden="true">Keluar</span>
+                </button>
+              </form>
+              </ul>
+            </li>
           </ul>
         </nav>
       </div>
