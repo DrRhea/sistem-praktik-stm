@@ -10,32 +10,32 @@
 <body class="h-full">
 <div x-data="{ open: false }" @keydown.window.escape="open = false">
 
-  <!-- Mobile Navbar -->
+  <!-- Navbar Mobile -->
   @include('admin.components.navbar')
 
-  <!-- Desktop Sidebar -->
+  <!-- Sidebar Desktop -->
   @include('admin.components.sidebar')
 
-  <!-- Desktop Sidebar -->
+  <!-- Header Desktop -->
   @include('admin.components.header')
 
   <main class="py-10 lg:pl-72">
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="relative flex justify-center overflow-hidden rounded-xl">
         <div class="divide-y divide-white/5">
-          <div class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
+          <div class="grid grid-cols-1 px-4 py-16 max-w-7xl gap-x-8 gap-y-10 sm:px-6 md:grid-cols-3 lg:px-8">
             <div>
-              <h2 class="text-base font-semibold leading-7 text-white">Personal Information</h2>
-              <p class="mt-1 text-sm leading-6 text-gray-400">Use a permanent address where you can receive mail.</p>
+              <h2 class="text-base font-semibold leading-7 text-white">Informasi Pribadi</h2>
+              <p class="mt-1 text-sm leading-6 text-gray-400">Masukkan nama lengkap dan email yang sesuai.</p>
             </div>
 
             <form class="md:col-span-2">
               <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6">
-                <div class="col-span-full flex items-center gap-x-8">
-                  <img src="{{ $admin->user->foto_profile ? '' : asset('img/photo_profile/default.png') }}" alt="" class="h-24 w-24 flex-none rounded-lg bg-gray-800 object-cover">
+                <div class="flex items-center col-span-full gap-x-8">
+                  <img src="{{ $admin->user->foto_profile ? '' : asset('img/photo_profile/default.png') }}" alt="" class="flex-none object-cover w-24 h-24 bg-gray-800 rounded-lg">
                   <div>
-                    <button type="button" class="rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-white/20">Change avatar</button>
-                    <p class="mt-2 text-xs leading-5 text-gray-400">JPG, GIF or PNG. 1MB max.</p>
+                    <button type="button" class="px-3 py-2 text-sm font-semibold text-white rounded-md shadow-sm bg-white/10 hover:bg-white/20">Ganti avatar</button>
+                    <p class="mt-2 text-xs leading-5 text-gray-400">JPG, GIF atau PNG. Maksimal 1MB.</p>
                   </div>
                 </div>
 
@@ -47,63 +47,62 @@
                 </div>
 
                 <div class="col-span-full">
-                  <label for="email" class="block text-sm font-medium leading-6 text-white">Email address</label>
+                  <label for="email" class="block text-sm font-medium leading-6 text-white">Email</label>
                   <div class="mt-2">
                     <input id="email" name="email" type="text" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" value="{{ $admin->user->email }}">
                   </div>
                 </div>
               </div>
-
-              <div class="mt-8 flex">
-                <button type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Save</button>
+              
+              <div class="flex mt-8">
+                <button type="submit" class="px-3 py-2 text-sm font-semibold text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Simpan</button>
               </div>
             </form>
           </div>
 
-          <div class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
+          <div class="grid grid-cols-1 px-4 py-16 max-w-7xl gap-x-8 gap-y-10 sm:px-6 md:grid-cols-3 lg:px-8">
             <div>
-              <h2 class="text-base font-semibold leading-7 text-white">Change password</h2>
-              <p class="mt-1 text-sm leading-6 text-gray-400">Update your password associated with your account.</p>
+              <h2 class="text-base font-semibold leading-7 text-white">Ganti Kata Sandi</h2>
+              <p class="mt-1 text-sm leading-6 text-gray-400">Perbarui kata sandi Anda yang terkait dengan akun Anda.</p>
             </div>
 
             <form class="md:col-span-2">
               <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6">
                 <div class="col-span-full">
-                  <label for="current-password" class="block text-sm font-medium leading-6 text-white">Current password</label>
+                  <label for="current-password" class="block text-sm font-medium leading-6 text-white">Kata Sandi Saat Ini</label>
                   <div class="mt-2">
                     <input id="current-password" name="current_password" type="password" autocomplete="current-password" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
                   </div>
                 </div>
 
                 <div class="col-span-full">
-                  <label for="new-password" class="block text-sm font-medium leading-6 text-white">New password</label>
+                  <label for="new-password" class="block text-sm font-medium leading-6 text-white">Kata Sandi Baru</label>
                   <div class="mt-2">
                     <input id="new-password" name="new_password" type="password" autocomplete="new-password" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
                   </div>
                 </div>
 
                 <div class="col-span-full">
-                  <label for="confirm-password" class="block text-sm font-medium leading-6 text-white">Confirm password</label>
+                  <label for="confirm-password" class="block text-sm font-medium leading-6 text-white">Konfirmasi Kata Sandi</label>
                   <div class="mt-2">
                     <input id="confirm-password" name="confirm_password" type="password" autocomplete="new-password" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
                   </div>
                 </div>
               </div>
 
-              <div class="mt-8 flex">
-                <button type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Save</button>
+              <div class="flex mt-8">
+                <button type="submit" class="px-3 py-2 text-sm font-semibold text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Simpan</button>
               </div>
             </form>
           </div>
-
-          <div class="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
+          <div class="grid grid-cols-1 px-4 py-16 max-w-7xl gap-x-8 gap-y-10 sm:px-6 md:grid-cols-3 lg:px-8">
             <div>
-              <h2 class="text-base font-semibold leading-7 text-white">Delete account</h2>
-              <p class="mt-1 text-sm leading-6 text-gray-400">No longer want to use our service? You can delete your account here. This action is not reversible. All information related to this account will be deleted permanently.</p>
+              <h2 class="text-base font-semibold leading-7 text-white">Hapus Akun</h2>
+              <p class="mt-1 text-sm leading-6 text-gray-400">Tidak ingin menggunakan layanan kami lagi? Anda dapat menghapus akun Anda di sini. Tindakan ini tidak dapat dibatalkan. Semua informasi terkait akun ini akan dihapus secara permanen.</p>
             </div>
 
             <form class="flex items-start md:col-span-2">
-              <button type="submit" class="rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-400">Yes, delete my account</button>
+              <button type="submit" class="px-3 py-2 text-sm font-semibold text-white bg-red-500 rounded-md shadow-sm hover:bg-red-400">Ya, hapus akun saya</button>
             </form>
           </div>
         </div>
