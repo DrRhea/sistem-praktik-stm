@@ -21,14 +21,16 @@ class PengajarMiddleware
 
       if ($user->role != 'pengajar' && $user->role != 'admin') {
         return redirect(route('siswa'));
-      } else if ($user->role != 'pengajar' && $user->role != 'siswa') {
+      } elseif ($user->role != 'pengajar' && $user->role != 'siswa') {
         $admin = Admin::where('user_id', $user->id)->first();
 
-        if($admin && $admin->status == 'pending') {
+        if($admin && $admin->status == 'pending')
           return redirect(route('admin.pending'));
-        }
+        elseif ($admin && $admin->status == 'diterima')
+          return redirect(route('admin'));
+        elseif ($admin && $admin->status == 'ditolak')
+          return redirect(route('admin.ditolak'));
 
-        return redirect(route('admin'));
       }
 
         return $next($request);
