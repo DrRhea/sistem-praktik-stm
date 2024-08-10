@@ -6,7 +6,7 @@
     </svg>
   </button>
   <div class="flex-1 text-sm font-semibold leading-6 text-white">Dashboard</div>
-  <a href="#">
+  <a href="{{ route('admin.profile') }}">
     <span class="sr-only">Your profile</span>
     <img class="h-8 w-8 rounded-full bg-gray-800" src="{{ Auth::user()->foto_profile ? '' : asset('img/photo_profile/default.png') }}" alt="">
   </a>
