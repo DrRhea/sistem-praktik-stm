@@ -1,6 +1,7 @@
 <?php
 
   use App\Http\Controllers\Admin\AdminController;
+  use App\Http\Controllers\Admin\AdminProfileController;
   use App\Http\Controllers\Auth\LoginController;
   use App\Http\Controllers\Auth\LogoutController;
   use App\Http\Controllers\Auth\RegisterController;
@@ -24,6 +25,9 @@
 // Routes untuk Admin
   Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
+
+    Route::get('profile/', [AdminProfileController::class, 'index'])->name('admin.profile');
+    Route::put('profile/', [AdminProfileController::class, 'update'])->name('admin.profile.update');
   });
 
 // Routes untuk Siswa
