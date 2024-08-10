@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pengajar;
 use Illuminate\Http\Request;
 
 class AdminPengajarController extends Controller
@@ -10,9 +11,10 @@ class AdminPengajarController extends Controller
   /**
    * Display a listing of the resource.
    */
-  public function index()
-  {
-    //
+  public function index() {
+    $pengajars = Pengajar::with('user')->get();
+
+    return view('admin.pengajar.index', compact('pengajars'));
   }
 
   /**

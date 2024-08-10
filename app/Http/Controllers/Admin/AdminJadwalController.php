@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Jadwal;
 use Illuminate\Http\Request;
 
 class AdminJadwalController extends Controller
@@ -10,9 +11,10 @@ class AdminJadwalController extends Controller
   /**
    * Display a listing of the resource.
    */
-  public function index()
-  {
-    //
+  public function index() {
+    $jadwals = Jadwal::with('praktik')->get();
+
+    return view('admin.jadwal.index', compact('jadwals'));
   }
 
   /**
