@@ -50,6 +50,7 @@
                           </th>
                         </tr>
                         </thead>
+                        <!-- UBAH YA PAK ISINYA -->
                         <tbody class="divide-y divide-gray-800">
                         @forelse($praktiks as $praktik)
                         <tr>

@@ -26,7 +26,7 @@
               <div class="px-4 sm:px-6 lg:px-8">
                 <div class="sm:flex sm:items-center">
                   <div class="sm:flex-auto">
-                    <h1 class="text-base font-semibold leading-6 text-white">Daftar Kelas </h1>
+                    <h1 class="text-base font-semibold leading-6 text-white">Jadwal Mata Pelajaran </h1>
                     <p class="mt-2 text-sm text-gray-300"></p>
                   </div>
                   <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
@@ -39,14 +39,17 @@
                       <table class="min-w-full divide-y divide-gray-700">
                         <thead>
                         <tr>
-                          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">Kelas</th>
-                          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Jurusan</th>
+                          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">Nama Guru</th>
+                          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">kelas</th>
+                          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Hari</th>
+                          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Jam</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Aksi</th>
                           <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
                             <span class="sr-only">Edit</span>
                           </th>
                         </tr>
                         </thead>
+                        <!-- benerin ya isinya pak -->
                         <tbody class="divide-y divide-gray-800">
                         @forelse($praktiks as $praktik)
                         <tr>
