@@ -3,24 +3,42 @@
 namespace App\Http\Controllers\Pengajar;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kelas;
+use App\Models\Pengajar;
+use App\Models\Praktik;
 use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PengajarNilaiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+  public function index()
+  {
+    $user = Auth::user();
 
+    $pengajar = Pengajar::where('user_id', $user->id)->first();
+
+    if (!$pengajar) {
+      return redirect()->route('some.route')->with('error', 'Pengajar tidak ditemukan');
     }
+
+    $praktik = Praktik::where('pengajar_id', $pengajar->id)->get();
+
+    $kelas = Kelas::whereIn('id', $praktik->pluck('kelas_id'))->get();
+
+    $siswa = Siswa::whereIn('kelas_id', $praktik->pluck('kelas_id'))->get();
+
+    return view('pengajar.nilai.index', compact('user', 'pengajar', 'kelas', 'siswa'));
+  }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request, $id)
+    public function create($id)
     {
         $siswa = Siswa::find($id);
 
@@ -43,7 +61,7 @@ class PengajarNilaiController extends Controller
         'nilai.numeric' => 'Nilai harus berupa angka',
       ]);
 
-      $nilai = Nilai::createe([
+      $nilai = Nilai::create([
         'siswa_id' => $id,
         'praktik_id' => $validatedData['praktik_id'],
         'nilai' => $validatedData['nilai'],

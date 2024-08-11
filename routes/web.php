@@ -67,13 +67,6 @@
     Route::patch('siswa/reset/{id}', [AdminSiswaController::class, 'resetPassword'])->name('admin.siswa.resetPassword');
     Route::delete('siswa/hapus/{id}', [AdminSiswaController::class, 'destroy'])->name('admin.siswa.delete');
 
-//    Route::get('nilai/', [AdminNilaiController::class, 'index'])->name('admin.nilai.index');
-//    Route::get('nilai/tambah', [AdminNilaiController::class, 'create'])->name('admin.nilai.create');
-//    Route::post('nilai/', [AdminNilaiController::class, 'store'])->name('admin.nilai.store');
-//    Route::get('nilai/ubah/{id}', [AdminNilaiController::class, 'edit'])->name('admin.nilai.edit');
-//    Route::put('nilai/ubah/{id}', [AdminNilaiController::class, 'update'])->name('admin.nilai.update');
-//    Route::delete('nilai/hapus/{id}', [AdminNilaiController::class, 'destroy'])->name('admin.nilai.delete');
-
     Route::get('pengajar/', [AdminPengajarController::class, 'index'])->name('admin.pengajar.index');
     Route::get('pengajar/tambah', [AdminPengajarController::class, 'create'])->name('admin.pengajar.create');
     Route::post('pengajar/', [AdminPengajarController::class, 'store'])->name('admin.pengajar.store');
@@ -107,7 +100,7 @@
 
     Route::get('/nilai', [PengajarNilaiController::class, 'index'])->name('pengajar.nilai.index');
     Route::get('/nilai/tambah/{id}', [PengajarNilaiController::class, 'create'])->name('pengajar.nilai.create');
-    Route::get('/nilai/tambah/{id}', [PengajarNilaiController::class, 'store'])->name('pengajar.nilai.store');
+//    Route::post('/nilai/store/{id}', [PengajarNilaiController::class, 'store'])->name('pengajar.nilai.store');
 
     Route::get('profile/', [PengajarProfileController::class, 'index'])->name('pengajar.profile.index');
     Route::put('profile/update/{id}', [PengajarProfileController::class, 'update'])->name('pengajar.profile.update');
