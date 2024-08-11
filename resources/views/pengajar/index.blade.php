@@ -21,10 +21,44 @@
 
   <main class="py-10 lg:pl-72">
     <div class="px-4 sm:px-6 lg:px-8">
-      <div class="relative overflow-hidden rounded-xl">
-        {{-- Placeholder --}}
+        <div class="relative overflow-hidden rounded-xl">
+          {{-- Placeholder --}}
+          <div class="bg-gray-900">
+            <div class="mx-auto max-w-7xl">
+              <div class="py-10 bg-gray-900">
+                <div class="px-4 sm:px-6 lg:px-8">
+                  <div class="sm:flex sm:items-center">
+                    <div class="sm:flex-auto">
+                      <h1 class="text-base font-semibold leading-6 text-white">Jadwal Mata Pelajaran</h1>
+                      <p class="mt-2 text-sm text-gray-300"></p>
+                    </div>
+                  </div>
+                  <div class="flow-root mt-8">
+                    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                        <table class="min-w-full divide-y divide-gray-700">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">No.</th>
+                              <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">Praktik</th>
+                              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Pengajar</th>
+                              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Hari</th>
+                              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Waktu</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- Data rows will go here -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   </main>
 </div>
 
