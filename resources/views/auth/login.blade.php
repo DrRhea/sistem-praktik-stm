@@ -7,17 +7,17 @@
   @vite('resources/css/app.css')
 </head>
 <body class="h-full">
-  <div class="flex min-h-screen flex-col bg-gray-900">
+  <div class="flex flex-col min-h-screen bg-gray-900">
     <div class="flex flex-1 min-h-full">
       <div class="flex flex-col justify-center flex-1 px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         @if(session('warning'))
-          <div class=" px-4 py-4 sm:px-6 lg:px-8">
-            <div class="mx-auto max-w-4xl">
+          <div class="px-4 py-4  sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
 
-              <div class="rounded-md bg-yellow-50/5 p-4">
+              <div class="p-4 rounded-md bg-yellow-50/5">
                 <div class="flex">
                   <div class="flex-shrink-0">
-                    <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                       <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
                     </svg>
                   </div>
@@ -65,7 +65,7 @@
             </div>
             <!-- Error Handling -->
             @if ($errors->any())
-              <div class="p-4 mt-4 border border-red-300/20 rounded-md bg-red-500/20">
+              <div class="p-4 mt-4 border rounded-md border-red-300/20 bg-red-500/20">
                 <div class="flex">
                   <div class="ml-3">
                     <h3 class="text-sm font-medium text-red-400">Ada {{ $errors->count() }} kesalahan</h3>
@@ -84,7 +84,7 @@
         </div>
       </div>
       <div class="relative flex-1 hidden w-0 lg:block">
-        <img class="absolute inset-0 object-cover w-full h-full" src="https://images.unsplash.com/photo-1534627760265-69713192ade4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <img class="absolute inset-0 object-cover w-full h-full" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
       </div>
     </div>
   </div>

@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 
 class SiswaController extends Controller
 {
-    public function index() {
+    public function index() 
+    {
       $user = Auth::user();
 
       // Dapatkan data siswa yang terhubung dengan user yang sedang login
