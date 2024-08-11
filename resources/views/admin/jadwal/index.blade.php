@@ -17,6 +17,8 @@
   @include('admin.components.sidebar')
 
   <main class="py-10 lg:pl-72">
+    <!-- Alerts -->
+    @include('admin.components.alerts')
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="relative overflow-hidden rounded-xl">
         {{-- Placeholder --}}
@@ -60,13 +62,13 @@
                             {{ $jadwal->praktik->pengajar->user->nama_lengkap }}
                           </td>
                           <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
-                            {{ $jadwal->hari }}
+                            {{ ucwords($jadwal->hari) }}
                           </td>
                           <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
                             {{ $jadwal->jam_mulai }} - {{ $jadwal->jam_selesai }}
                           </td>
                           <td class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
-                            <div class="flex justify-end space-x-1">
+                            <div class="inline-flex rounded-md shadow-sm isolate">
                               <a href="{{ route('admin.jadwal.edit', ['id' => $jadwal->id]) }}" class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-gray-800 rounded-l-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Ubah</a>
                               <form action="{{ route('admin.jadwal.delete', ['id' => $jadwal->id]) }}" method="POST" class="inline-flex">
                                 @csrf
