@@ -11,16 +11,16 @@
 <div x-data="{ open: false }" @keydown.window.escape="open = false">
 
   <!-- Navbar Mobile -->
-  @include('admin.components.navbar')
+  @include('pengajar.components.navbar')
 
   <!-- Sidebar Desktop -->
-  @include('admin.components.sidebar')
+  @include('pengajar.components.sidebar')
 
   <!-- Header Desktop -->
-  @include('admin.components.header')
+  @include('pengajar.components.header')
 
   <main class="py-10 lg:pl-72">
-    @include('admin.components.alerts')
+    @include('pengajar.components.alerts')
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="relative flex justify-center overflow-hidden rounded-xl">
         <div class="divide-y divide-white/5">
@@ -35,7 +35,7 @@
               @method('PUT')
               <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6">
                 <div class="flex items-center col-span-full gap-x-8">
-                  <img src="{{ $admin->user->foto_profile ? asset('img/photo_profile/' . $admin->user->foto_profile) : asset('img/photo_profile/default.png') }}" alt="" class="flex-none object-cover w-24 h-24 bg-gray-800 rounded-lg">
+                  <img src="{{ $pengajar->user->foto_profile ? asset('img/photo_profile/' . $pengajar->user->foto_profile) : asset('img/photo_profile/default.png') }}" alt="" class="flex-none object-cover w-24 h-24 bg-gray-800 rounded-lg">
                   <div>
                     <input type="file" name="foto_profile" id="foto_profile" class="hidden" accept=".png, .jpg, .jpeg">
                     <label for="foto_profile" class="px-3 py-2 text-sm font-semibold text-white rounded-md shadow-sm bg-white/10 hover:bg-white/20">Ganti avatar</label>
@@ -51,19 +51,19 @@
                 <div class="col-span-full">
                   <label for="nama_lengkap" class="block text-sm font-medium leading-6 text-white">Nama Lengkap</label>
                   <div class="mt-2">
-                    <input id="nama_lengkap" name="nama_lengkap" type="text" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" value="{{ $admin->user->nama_lengkap }}">
+                    <input id="nama_lengkap" name="nama_lengkap" type="text" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" value="{{ $pengajar->user->nama_lengkap }}">
                   </div>
                   @error('nama_lengkap')
-                    <div class="mt-2">
-                      <p class="ml-2 text-red-500 text-sm font-light">{{ $message }}</p>
-                    </div>
+                  <div class="mt-2">
+                    <p class="ml-2 text-red-500 text-sm font-light">{{ $message }}</p>
+                  </div>
                   @enderror
                 </div>
 
                 <div class="col-span-full">
                   <label for="email" class="block text-sm font-medium leading-6 text-white">Email</label>
                   <div class="mt-2">
-                    <input id="email" name="email" type="text" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" value="{{ $admin->user->email }}">
+                    <input id="email" name="email" type="text" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" value="{{ $pengajar->user->email }}">
                   </div>
                   @error('email')
                   <div class="mt-2">
@@ -72,7 +72,7 @@
                   @enderror
                 </div>
               </div>
-              
+
               <div class="flex mt-8">
                 <button type="submit" class="px-3 py-2 text-sm font-semibold text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Simpan</button>
               </div>
@@ -96,9 +96,9 @@
                     <input id="current-password" name="current_password" type="password" autocomplete="current-password" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
                   </div>
                   @error('current_password')
-                    <div class="mt-2">
-                      <p class="ml-2 text-red-500 text-sm font-light">{{ $message }}</p>
-                    </div>
+                  <div class="mt-2">
+                    <p class="ml-2 text-red-500 text-sm font-light">{{ $message }}</p>
+                  </div>
                   @enderror
                 </div>
 
@@ -108,9 +108,9 @@
                     <input id="new-password" name="new_password" type="password" autocomplete="new-password" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
                   </div>
                   @error('new_password')
-                    <div class="mt-2">
-                      <p class="ml-2 text-red-500 text-sm font-light">{{ $message }}</p>
-                    </div>
+                  <div class="mt-2">
+                    <p class="ml-2 text-red-500 text-sm font-light">{{ $message }}</p>
+                  </div>
                   @enderror
                 </div>
 
@@ -120,9 +120,9 @@
                     <input id="confirm-password" name="new_password_confirmation" type="password" autocomplete="new-password" class="block w-full rounded-md border-0 bg-white/5 py-1.5 px-2.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
                   </div>
                   @error('new_password_confirmation')
-                    <div class="mt-2">
-                      <p class="ml-2 text-red-500 text-sm font-light">{{ $message }}</p>
-                    </div>
+                  <div class="mt-2">
+                    <p class="ml-2 text-red-500 text-sm font-light">{{ $message }}</p>
+                  </div>
                   @enderror
                 </div>
               </div>
@@ -133,16 +133,16 @@
             </form>
           </div>
 
-{{--          <div class="grid grid-cols-1 px-4 py-16 max-w-7xl gap-x-8 gap-y-10 sm:px-6 md:grid-cols-3 lg:px-8">--}}
-{{--            <div>--}}
-{{--              <h2 class="text-base font-semibold leading-7 text-white">Hapus Akun</h2>--}}
-{{--              <p class="mt-1 text-sm leading-6 text-gray-400">Tidak ingin menggunakan layanan kami lagi? Anda dapat menghapus akun Anda di sini. Tindakan ini tidak dapat dibatalkan. Semua informasi terkait akun ini akan dihapus secara permanen.</p>--}}
-{{--            </div>--}}
+          {{--          <div class="grid grid-cols-1 px-4 py-16 max-w-7xl gap-x-8 gap-y-10 sm:px-6 md:grid-cols-3 lg:px-8">--}}
+          {{--            <div>--}}
+          {{--              <h2 class="text-base font-semibold leading-7 text-white">Hapus Akun</h2>--}}
+          {{--              <p class="mt-1 text-sm leading-6 text-gray-400">Tidak ingin menggunakan layanan kami lagi? Anda dapat menghapus akun Anda di sini. Tindakan ini tidak dapat dibatalkan. Semua informasi terkait akun ini akan dihapus secara permanen.</p>--}}
+          {{--            </div>--}}
 
-{{--            <form class="flex items-start md:col-span-2">--}}
-{{--              <button type="submit" class="px-3 py-2 text-sm font-semibold text-white bg-red-500 rounded-md shadow-sm hover:bg-red-400">Ya, hapus akun saya</button>--}}
-{{--            </form>--}}
-{{--          </div>--}}
+          {{--            <form class="flex items-start md:col-span-2">--}}
+          {{--              <button type="submit" class="px-3 py-2 text-sm font-semibold text-white bg-red-500 rounded-md shadow-sm hover:bg-red-400">Ya, hapus akun saya</button>--}}
+          {{--            </form>--}}
+          {{--          </div>--}}
         </div>
       </div>
     </div>

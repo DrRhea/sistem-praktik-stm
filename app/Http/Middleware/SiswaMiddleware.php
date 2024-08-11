@@ -22,5 +22,5 @@ class SiswaMiddleware
         return redirect(route('admin'));
 
       return $next($request);
-  }
+    }
 }
