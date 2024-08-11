@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Nilai;
+use App\Models\Praktik;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class AdminNilaiController extends Controller
@@ -12,9 +14,10 @@ class AdminNilaiController extends Controller
    * Display a listing of the resource.
    */
   public function index() {
-    $nilais = Nilai::with('siswa')->with('praktik')->get();
+//    $nilais = Nilai::with('siswa')->with('praktik')->get();
+    $siswas = Siswa::with('user')->get();
 
-    return view('admin.nilai.index', compact('nilais'));
+    return view('admin.nilai.index', compact('siswas'));
   }
 
   /**
@@ -22,7 +25,10 @@ class AdminNilaiController extends Controller
    */
   public function create()
   {
-    //
+    $siswas = Siswa::all();
+    $praktiks = Praktik::all();
+
+    return view('admin.nilai.create', compact('siswas', 'praktiks'));
   }
 
   /**
