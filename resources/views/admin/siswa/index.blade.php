@@ -44,6 +44,7 @@
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">NIS</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Siswa</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Email</th>
+                          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Kelas & Jurusan</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Foto</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Aksi</th>
                           <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
@@ -65,6 +66,9 @@
                             </td>
                             <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
                               {{ $siswa->user->email }}
+                            </td>
+                            <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
+                              {{ $siswa->kelas->kelas }} | {{ $siswa->kelas->jurusan }}
                             </td>
                             <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
                               <img src="{{ $siswa->user->foto_profile ? asset('img/photo_profile/' . $siswa->user->foto_profile) : asset('img/photo_profile/default.png') }}" alt="" class="flex-none object-cover w-12 h-12 bg-gray-800 rounded-lg">
