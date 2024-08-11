@@ -12,11 +12,14 @@
   use App\Http\Controllers\Auth\LogoutController;
   use App\Http\Controllers\Auth\RegisterController;
   use App\Http\Controllers\Pengajar\PengajarController;
+  use App\Http\Controllers\Pengajar\PengajarNilaiController;
   use App\Http\Controllers\Siswa\SiswaController;
+  use App\Http\Controllers\Siswa\SiswaNilaiController;
+  use App\Http\Controllers\Siswa\SiswaProfileController;
   use Illuminate\Support\Facades\Route;
 
 // Routes untuk Guest (tanpa middleware)
-  Route::middleware([])->group(function () {
+  Route::middleware(['guest'])->group(function () {
     Route::get('auth/login/', [LoginController::class, 'index'])->name('login');
     Route::post('auth/login/', [LoginController::class, 'login'])->name('login.post');
 
@@ -85,10 +88,23 @@
 // Routes untuk Siswa
   Route::middleware(['auth', 'siswa'])->group(function () {
     Route::get('/', [SiswaController::class, 'index'])->name('siswa');
+    Route::get('/nilai', [SiswaNilaiController::class, 'index'])->name('siswa.nilai.index');
+
+    Route::get('profile/', [SiswaProfileController::class, 'index'])->name('siswa.profile.index');
+    Route::put('profile/update/{id}', [SiswaProfileController::class, 'update'])->name('siswa.profile.update');
+    Route::patch('profile/update/password', [SiswaProfileController::class, 'updatePassword'])->name('siswa.profile.updatePassword');
   });
 
 // Routes untuk Pengajar
   Route::prefix('pengajar')->middleware(['auth', 'pengajar'])->group(function () {
     Route::get('/', [PengajarController::class, 'index'])->name('pengajar');
+
+    Route::get('/nilai', [PengajarNilaiController::class, 'index'])->name('pengajar.nilai.index');
+    Route::get('/nilai/tambah/{id}', [PengajarNilaiController::class, 'create'])->name('pengajar.nilai.create');
+    Route::get('/nilai/tambah/{id}', [PengajarNilaiController::class, 'store'])->name('pengajar.nilai.store');
+
+    Route::get('profile/', [PengajarProfileController::class, 'index'])->name('pengajar.profile.index');
+    Route::put('profile/update/{id}', [PengajarProfileController::class, 'update'])->name('pengajar.profile.update');
+    Route::patch('profile/update/password', [PengajarProfileController::class, 'updatePassword'])->name('pengajar.profile.updatePassword');
   });
 
