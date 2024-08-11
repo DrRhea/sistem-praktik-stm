@@ -16,12 +16,12 @@
   <!-- Desktop Sidebar -->
   @include('admin.components.sidebar')
 
-  <!-- Desktop Sidebar -->
+  <!-- Desktop Header -->
   @include('admin.components.header')
-  <!-- Alerts -->
-  @include('admin.components.alerts')
 
   <main class="py-10 lg:pl-72">
+    <!-- Alerts -->
+    @include('admin.components.alerts')
 
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="relative overflow-hidden rounded-xl">
