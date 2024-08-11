@@ -81,7 +81,7 @@
           <div class="text-xs font-semibold leading-6 text-gray-400">Admin</div>
           <ul role="list" class="mt-2 -mx-2 space-y-1">
             <li>
-              <a href="{{ route('admin.pengajar.index') }}" class="flex p-2 text-sm font-semibold leading-6 {{ request()->is('admin/pengajar*') ? 'text-white bg-gray-800' : 'text-gray-400 hover:text-white hover:bg-gray-800' }} rounded-md group gap-x-3">
+              <a href="{{ route('admin.approve.index') }}" class="flex p-2 text-sm font-semibold leading-6 {{ request()->is('admin/approve*') ? 'text-white bg-gray-800' : 'text-gray-400 hover:text-white hover:bg-gray-800' }} rounded-md group gap-x-3">
                 <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-gray-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">A</span>
                 <span class="truncate">Admin</span>
               </a>

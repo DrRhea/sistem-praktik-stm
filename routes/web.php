@@ -14,6 +14,7 @@
   use App\Http\Controllers\Auth\RegisterController;
   use App\Http\Controllers\Pengajar\PengajarController;
   use App\Http\Controllers\Pengajar\PengajarNilaiController;
+  use App\Http\Controllers\Pengajar\PengajarProfileController;
   use App\Http\Controllers\Siswa\SiswaController;
   use App\Http\Controllers\Siswa\SiswaNilaiController;
   use App\Http\Controllers\Siswa\SiswaProfileController;
