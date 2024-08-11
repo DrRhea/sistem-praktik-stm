@@ -34,9 +34,8 @@
                     <h1 class="text-base font-semibold leading-6 text-white">Daftar Kelas </h1>
                     <p class="mt-2 text-sm text-gray-300"></p>
                   </div>
-{{--                  <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">--}}
-{{--                    <a href="{{ route('admin.kelas.create') }}" class="block px-3 py-2 text-sm font-semibold text-center text-white bg-indigo-500 rounded-md hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Tambah</a>--}}
-{{--                  </div>--}}
+<div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+<a href="{{ route('admin.kelas.create') }}" class="block px-3 py-2 text-sm font-semibold text-center text-white bg-indigo-500 rounded-md hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Tambah</a></div>
                 </div>
                 <div class="flow-root mt-8">
                   <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -63,7 +62,7 @@
                           <td class="py-4 pl-4 pr-3 text-sm font-medium text-white whitespace-nowrap sm:pl-0">
                             {{ $kls->kelas }}
                           </td>
-                          <td class="px-3 w-full py-4 text-sm text-gray-300 whitespace-nowrap">
+                          <td class="w-full px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
                             {{ $kls->jurusan }}
                           </td>
                           <td class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">

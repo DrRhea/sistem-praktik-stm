@@ -7,7 +7,7 @@
   @vite('resources/css/app.css')
 </head>
 <body class="h-full">
-  <div class="flex min-h-screen flex-col bg-gray-900">
+  <div class="flex flex-col min-h-screen bg-gray-900">
     <div class="flex flex-1 min-h-full">
       <div class="flex flex-col justify-center flex-1 px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div class="w-full max-w-sm mx-auto lg:w-96">
@@ -59,7 +59,7 @@
             </div>
             <!-- Error Handling -->
             @if ($errors->any())
-              <div class="p-4 mt-4 border border-red-300/20 rounded-md bg-red-500/20">
+              <div class="p-4 mt-4 border rounded-md border-red-300/20 bg-red-500/20">
                 <div class="flex">
                   <div class="ml-3">
                     <h3 class="text-sm font-medium text-red-400">Ada {{ $errors->count() }} kesalahan</h3>
@@ -78,7 +78,7 @@
         </div>
       </div>
       <div class="relative flex-1 hidden w-0 lg:block">
-        <img class="absolute inset-0 object-cover w-full h-full" src="https://plus.unsplash.com/premium_photo-1661962510497-9505129083fa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <img class="absolute inset-0 object-cover w-full h-full" src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
       </div>
     </div>
   </div>
