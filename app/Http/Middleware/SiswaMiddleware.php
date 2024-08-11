@@ -20,5 +20,7 @@ class SiswaMiddleware
         return redirect(route('pengajar'));
       else if (Auth::user()->role != 'siswa' && Auth::user()->role != 'pengajar')
         return redirect(route('admin'));
-    }
+
+      return $next($request);
+  }
 }
