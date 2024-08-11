@@ -16,6 +16,9 @@
   <!-- Desktop Sidebar -->
   @include('admin.components.sidebar')
 
+  <!-- Desktop Header -->
+  @include('admin.components.header')
+
   <main class="py-10 lg:pl-72">
     @include('admin.components.alerts')
     <div class="px-4 sm:px-6 lg:px-8">
