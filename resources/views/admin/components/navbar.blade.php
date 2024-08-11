@@ -78,11 +78,15 @@
               <div class="text-xs font-semibold leading-6 text-gray-400">Admin</div>
               <ul role="list" class="mt-2 -mx-2 space-y-1">
                 <li>
+<<<<<<< HEAD
 
                   <a href="" class="flex p-2 text-sm font-semibold leading-6 text-gray-400 rounded-md hover:text-white hover:bg-gray-800 group gap-x-3" x-state:on="Current" x-state:off="Default" x-state-description="Current: &quot;bg-gray-800 text-white&quot;, Default: &quot;text-gray-400 hover:text-white hover:bg-gray-800&quot;">
 
                   <a href="{{ route('admin.approve.index') }}" class="flex p-2 text-sm font-semibold leading-6 text-gray-400 rounded-md hover:text-white hover:bg-gray-800 group gap-x-3" x-state:on="Current" x-state:off="Default" x-state-description="Current: &quot;bg-gray-800 text-white&quot;, Default: &quot;text-gray-400 hover:text-white hover:bg-gray-800&quot;">
 
+=======
+                  <a href="{{ route('admin.approve.index') }}" class="flex p-2 text-sm font-semibold leading-6 text-gray-400 rounded-md hover:text-white hover:bg-gray-800 group gap-x-3" x-state:on="Current" x-state:off="Default" x-state-description="Current: &quot;bg-gray-800 text-white&quot;, Default: &quot;text-gray-400 hover:text-white hover:bg-gray-800&quot;">
+>>>>>>> b6955914344b9fc774f56dd72f4dae8605bda43e
                     <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-gray-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">A</span>
                     <span class="truncate">Admin</span>
                   </a>
@@ -96,11 +100,16 @@
                   <span aria-hidden="true">Keluar</span>
                 </button>
               </form>
+<<<<<<< HEAD
 
               </ul>
             </li>
           </ul>
           </li>
+=======
+              </ul>
+            </li>
+>>>>>>> b6955914344b9fc774f56dd72f4dae8605bda43e
           </ul>
         </nav>
       </div>

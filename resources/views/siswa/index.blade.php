@@ -20,7 +20,10 @@
   @include('siswa.components.header')
 
   <main class="py-10 lg:pl-72">
+<<<<<<< HEAD
 
+=======
+>>>>>>> b6955914344b9fc774f56dd72f4dae8605bda43e
     <!-- Alerts -->
     @include('admin.components.alerts')
     <div class="px-4 sm:px-6 lg:px-8">
@@ -98,15 +101,21 @@
             </div>
           </div>
         </div>
+<<<<<<< HEAD
 
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="relative overflow-hidden rounded-xl">
         {{-- Placeholder --}}
 
+=======
+>>>>>>> b6955914344b9fc774f56dd72f4dae8605bda43e
       </div>
     </div>
   </main>
 </div>
 </body>
 </html>
+<<<<<<< HEAD
 
+=======
+>>>>>>> b6955914344b9fc774f56dd72f4dae8605bda43e

@@ -6,6 +6,7 @@
     </div>
     <nav class="flex flex-col flex-1">
       <ul role="list" class="flex flex-col flex-1 gap-y-7">
+<<<<<<< HEAD
 <!-- Dashboard -->
         <li>
           <a href="{{ route('admin') }}" class="flex p-2 text-sm font-semibold leading-6 {{ request()->routeIs('admin') ? 'text-white bg-gray-800' : 'text-gray-400 hover:text-white hover:bg-gray-800' }} rounded-md group gap-x-3">
@@ -14,12 +15,18 @@
         <li>
           <a href="{{ route('pengajar') }}" class="flex p-2 text-sm font-semibold leading-6 {{ request()->routeIs('pengajar') ? 'text-white bg-gray-800' : 'text-gray-400 hover:text-white hover:bg-gray-800' }} rounded-md group gap-x-3">
 
+=======
+        <!-- Jadwal -->
+        <li>
+          <a href="{{ route('pengajar') }}" class="flex p-2 text-sm font-semibold leading-6 {{ request()->routeIs('pengajar') ? 'text-white bg-gray-800' : 'text-gray-400 hover:text-white hover:bg-gray-800' }} rounded-md group gap-x-3">
+>>>>>>> b6955914344b9fc774f56dd72f4dae8605bda43e
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
               <path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm7 7v-5h4v5h-4zm2-15.586 6 6V15l.001 5H16v-5c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v5H6v-9.586l6-6z"></path>
             </svg>
             Dashboard
           </a>
         </li>
+<<<<<<< HEAD
 
         <!-- Praktik -->
         <li>
@@ -97,11 +104,16 @@
         <!-- Profile and Logout -->
         <li class="mt-auto -mx-6">
           <a href="{{ route('admin.profile.index') }}" class="flex items-center px-6 py-3 text-sm font-semibold leading-6 text-white gap-x-4 hover:bg-gray-800">
+=======
+>>>>>>> b6955914344b9fc774f56dd72f4dae8605bda43e
 
         <!-- Profile and Logout -->
         <li class="mt-auto -mx-6">
           <a href="{{ route('pengajar.profile.index') }}" class="flex items-center px-6 py-3 text-sm font-semibold leading-6 text-white gap-x-4 hover:bg-gray-800">
+<<<<<<< HEAD
 
+=======
+>>>>>>> b6955914344b9fc774f56dd72f4dae8605bda43e
             <img class="w-8 h-8 bg-gray-800 rounded-md" src="{{ Auth::user()->foto_profile ? asset('img/photo_profile/' . Auth::user()->foto_profile) : asset('img/photo_profile/default.png') }}" alt="">
             <span class="sr-only">Your profile</span>
             <span aria-hidden="true">{{ ucwords(Auth::user()->nama_lengkap) }}</span>

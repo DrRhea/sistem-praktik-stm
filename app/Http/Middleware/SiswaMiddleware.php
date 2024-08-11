@@ -23,5 +23,8 @@ class SiswaMiddleware
 
       return $next($request);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> b6955914344b9fc774f56dd72f4dae8605bda43e
 }

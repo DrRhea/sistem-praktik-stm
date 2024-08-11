@@ -3,12 +3,18 @@
 namespace App\Http\Controllers\Pengajar;
 
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 use Illuminate\Http\Request;
 
 use App\Models\Pengajar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+=======
+use App\Models\Pengajar;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+>>>>>>> b6955914344b9fc774f56dd72f4dae8605bda43e
 
 class PengajarProfileController extends Controller
 {
@@ -17,14 +23,20 @@ class PengajarProfileController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
 
         //
 
+=======
+>>>>>>> b6955914344b9fc774f56dd72f4dae8605bda43e
       $user = Auth::user();
       $pengajar = Pengajar::where('user_id', $user->id)->with('user')->first();
 
       return view('pengajar.profile', compact('pengajar'));
+<<<<<<< HEAD
 
+=======
+>>>>>>> b6955914344b9fc774f56dd72f4dae8605bda43e
     }
 
     /**
