@@ -20,26 +20,9 @@
           </div>
 
           <div class="mt-10">
-            <!-- Error Handling -->
-            @if ($errors->any())
-            <div class="p-4 mb-4 border border-red-300 rounded-md bg-red-50">
-              <div class="flex">
-                <div class="ml-3">
-                  <h3 class="text-sm font-medium text-red-800">Ada {{ $errors->count() }} kesalahan</h3>
-                  <div class="mt-2 text-sm text-red-700">
-                    <ul role="list" class="pl-5 space-y-1 list-disc">
-                      @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                      @endforeach
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            @endif
 
             <div>
-              <form action="#" method="POST" class="space-y-6">
+              <form action="{{ route('register.post') }}" method="POST" class="space-y-6">
                 @csrf
                 <div>
                   <label for="nama_lengkap" class="block text-sm font-medium leading-6 text-white">Nama Lengkap</label>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,6 +29,15 @@ class LoginController extends Controller
 
     // Ambil data dari request
     $credentials = $request->only('email', 'password');
+
+    $user = User::where('email', $request->email)->first();
+    if($user->role == 'admin') {
+      $admin = Admin::where('user_id', $user->id)->first();
+
+      if ($admin && $admin->status == 'pending') {
+        return back()->with('warning', 'Akun Anda masih pending. Harap tunggu konfirmasi dari admin.');
+      }
+    }
 
     // Cek kredensial dan login
     if (Auth::attempt($credentials)) {

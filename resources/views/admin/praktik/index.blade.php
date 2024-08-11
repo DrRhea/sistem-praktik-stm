@@ -19,7 +19,10 @@
   <!-- Desktop Sidebar -->
   @include('admin.components.header')
 
+
   <main class="py-10 lg:pl-72">
+    <!-- Alerts -->
+    @include('admin.components.alerts')
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="relative overflow-hidden rounded-xl">
         {{-- Placeholder --}}
@@ -29,11 +32,11 @@
               <div class="px-4 sm:px-6 lg:px-8">
                 <div class="sm:flex sm:items-center">
                   <div class="sm:flex-auto">
-                    <h1 class="text-base font-semibold leading-6 text-white">Praktik Sekolah</h1>
+                    <h1 class="text-base font-semibold leading-6 text-white">Daftar Kegiatan Praktik</h1>
                     <p class="mt-2 text-sm text-gray-300"></p>
                   </div>
                   <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                    <button type="button" class="block px-3 py-2 text-sm font-semibold text-center text-white bg-indigo-500 rounded-md hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Tambah</button>
+                    <a href="{{ route('admin.praktik.create') }}" class="block px-3 py-2 text-sm font-semibold text-center text-white bg-indigo-500 rounded-md hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Tambah</a>
                   </div>
                 </div>
                 <div class="flow-root mt-8">
@@ -73,12 +76,21 @@
                           </td>
                           <td class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
                               <span class="inline-flex rounded-md shadow-sm isolate">
-                                <button type="button" class="relative inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-gray-800 rounded-l-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Ubah</button>
-                                <button type="submit" class="relative inline-flex items-center px-3 py-2 -ml-px text-sm font-semibold text-white bg-gray-800 rounded-r-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Hapus</button>
+                                <a href="{{ route('admin.praktik.edit', ['id' => $praktik->id]) }}" class="relative inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-gray-800 rounded-l-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Ubah</a>
+                                <form action="{{ route('admin.praktik.delete', ['id' => $praktik->id]) }}" method="POST">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button type="submit" class="relative inline-flex items-center px-3 py-2 -ml-px text-sm font-semibold text-white bg-gray-800 rounded-r-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Hapus</button>
+                                </form>
                               </span>
                           </td>
                         </tr>
                         @empty
+                          <tr>
+                            <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
+                              Belum ada data
+                            </td>
+                          </tr>
                         @endforelse
                         </tbody>
                       </table>
