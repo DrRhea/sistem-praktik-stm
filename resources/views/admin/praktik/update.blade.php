@@ -20,12 +20,11 @@
   @include('admin.components.header')
 
   <main class="py-10 lg:pl-72">
-    <div class="px-4 sm:px-6 lg:px-8">
       <div class="relative flex justify-center overflow-hidden rounded-xl">
         <div class="grid grid-cols-1 px-4 py-16 max-w-7xl gap-x-8 gap-y-10 sm:px-6 md:grid-cols-3 lg:px-8">
           <div>
-            <h2 class="text-base font-semibold leading-7 text-white">Tambah Data Praktik</h2>
-            <p class="mt-1 text-sm leading-6 text-gray-400">Tambahkan informasi terbaru mengenai praktik siswa.</p>
+            <h2 class="text-base font-semibold leading-7 text-white">Ubah Data Praktik</h2>
+            <p class="mt-1 text-sm leading-6 text-gray-400">Ubah informasi terbaru mengenai praktik siswa.</p>
           </div>
 
           <form class="md:col-span-2" action="{{ route('admin.praktik.update', ['id' => $praktik->id]) }}" method="POST">
@@ -41,7 +40,7 @@
                 </div>
                 @error('judul')
                 <div class="mt-2">
-                  <p class="ml-2 text-red-500 text-sm font-light">{{ $message }}</p>
+                  <p class="ml-2 text-sm font-light text-red-500">{{ $message }}</p>
                 </div>
                 @enderror
 
@@ -54,7 +53,7 @@
                 </div>
                 @error('deskripsi')
                 <div class="mt-2">
-                  <p class="ml-2 text-red-500 text-sm font-light">{{ $message }}</p>
+                  <p class="ml-2 text-sm font-light text-red-500">{{ $message }}</p>
                 </div>
                 @enderror
               </div>
@@ -70,7 +69,7 @@
                 </select>
                 @error('pengajar_id')
                 <div class="mt-2">
-                  <p class="ml-2 text-red-500 text-sm font-light">{{ $message }}</p>
+                  <p class="ml-2 text-sm font-light text-red-500">{{ $message }}</p>
                 </div>
                 @enderror
               </div>
@@ -86,7 +85,7 @@
                 </select>
                 @error('kelas_id')
                 <div class="mt-2">
-                  <p class="ml-2 text-red-500 text-sm font-light">{{ $message }}</p>
+                  <p class="ml-2 text-sm font-light text-red-500">{{ $message }}</p>
                 </div>
                 @enderror
               </div>
@@ -99,7 +98,6 @@
       </div>
     </div>
   </main>
-</div>
 
 </body>
 </html>

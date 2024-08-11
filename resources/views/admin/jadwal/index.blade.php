@@ -20,17 +20,17 @@
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="relative overflow-hidden rounded-xl">
         {{-- Placeholder --}}
-        <div div class="bg-gray-900">
+        <div class="bg-gray-900">
           <div class="mx-auto max-w-7xl">
             <div class="py-10 bg-gray-900">
               <div class="px-4 sm:px-6 lg:px-8">
                 <div class="sm:flex sm:items-center">
                   <div class="sm:flex-auto">
-                    <h1 class="text-base font-semibold leading-6 text-white">Daftar Kelas </h1>
+                    <h1 class="text-base font-semibold leading-6 text-white">Jadwal Mata Pelajaran</h1>
                     <p class="mt-2 text-sm text-gray-300"></p>
                   </div>
                   <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                    <button type="button" class="block px-3 py-2 text-sm font-semibold text-center text-white bg-indigo-500 rounded-md hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Tambah</button>
+                    <a href="{{ route('admin.jadwal.create') }}" class="block px-3 py-2 text-sm font-semibold text-center text-white bg-indigo-500 rounded-md hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Tambah</a>
                   </div>
                 </div>
                 <div class="flow-root mt-8">
@@ -43,7 +43,8 @@
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Pengajar</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Hari</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Waktu</th>
-                          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Aksi</th>
+                          <th scope="col" class="px-3 py-3.0 text-center text-sm font-semibold text-white">Aksi</th>
+
                           <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
                             <span class="sr-only">Edit</span>
                           </th>
@@ -65,15 +66,19 @@
                             {{ $jadwal->jam_mulai }} - {{ $jadwal->jam_selesai }}
                           </td>
                           <td class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
-                              <span class="inline-flex rounded-md shadow-sm isolate">
-                                <button type="button" class="relative inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-gray-800 rounded-l-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Ubah</button>
-                                <button type="submit" class="relative inline-flex items-center px-3 py-2 -ml-px text-sm font-semibold text-white bg-gray-800 rounded-r-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Hapus</button>
-                              </span>
+                            <div class="flex justify-end space-x-1">
+                              <a href="{{ route('admin.jadwal.edit', ['id' => $jadwal->id]) }}" class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-gray-800 rounded-l-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Ubah</a>
+                              <form action="{{ route('admin.jadwal.delete', ['id' => $jadwal->id]) }}" method="POST" class="inline-flex">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-gray-800 rounded-r-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Hapus</button>
+                              </form>
+                            </div>
                           </td>
                         </tr>
                         @empty
                         <tr>
-                          <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
+                          <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap" colspan="6">
                             Belum ada data
                           </td>
                         </tr>
@@ -90,6 +95,7 @@
       </div>
     </div>
   </main>
+
 </div>
 
 </body>

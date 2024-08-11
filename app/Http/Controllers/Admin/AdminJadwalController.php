@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Jadwal;
+use App\Models\Pengajar;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminJadwalController extends Controller
 {
@@ -22,7 +23,10 @@ class AdminJadwalController extends Controller
    */
   public function create()
   {
-    //
+      $pengajars = Pengajar::all(); // Ambil semua data pengajar
+      $jadwals = Jadwal::all(); // Ambil semua data jadwal, jika diperlukan
+
+      return view('admin.jadwal.create', compact('pengajars', 'jadwals'));
   }
 
   /**
@@ -44,10 +48,13 @@ class AdminJadwalController extends Controller
   /**
    * Show the form for editing the specified resource.
    */
-  public function edit(string $id)
+  public function edit($id)
   {
-    //
+      $jadwal = Jadwal::findOrFail($id);
+      $pengajars = Pengajar::all();
+      return view('admin.jadwal.update', compact('jadwal', 'pengajars'));
   }
+  
 
   /**
    * Update the specified resource in storage.

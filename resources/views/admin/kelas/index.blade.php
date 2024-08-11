@@ -53,6 +53,7 @@
                           </th>
                         </tr>
                         </thead>
+                        <!-- UBAH YA PAK ISINYA -->
                         <tbody class="divide-y divide-gray-800">
                         @forelse($kelas as $kls)
                         <tr>

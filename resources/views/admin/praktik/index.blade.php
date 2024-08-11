@@ -26,7 +26,7 @@
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="relative overflow-hidden rounded-xl">
         {{-- Placeholder --}}
-        <div div class="bg-gray-900">
+        <div class="bg-gray-900">
           <div class="mx-auto max-w-7xl">
             <div class="py-10 bg-gray-900">
               <div class="px-4 sm:px-6 lg:px-8">
@@ -76,18 +76,18 @@
                           </td>
                           <td class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
                               <span class="inline-flex rounded-md shadow-sm isolate">
-                                <a href="{{ route('admin.praktik.edit', ['id' => $praktik->id]) }}" class="relative inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-gray-800 rounded-l-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Ubah</a>
+                                <a href="{{ route('admin.praktik.edit', ['id' => $praktik->id]) }}" class="relative inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-gray-800 rounded-l-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Terima</a>
                                 <form action="{{ route('admin.praktik.delete', ['id' => $praktik->id]) }}" method="POST">
                                   @csrf
                                   @method('DELETE')
-                                  <button type="submit" class="relative inline-flex items-center px-3 py-2 -ml-px text-sm font-semibold text-white bg-gray-800 rounded-r-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Hapus</button>
+                                  <button type="submit" class="relative inline-flex items-center px-3 py-2 -ml-px text-sm font-semibold text-white bg-gray-800 rounded-r-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Tolak</button>
                                 </form>
                               </span>
                           </td>
                         </tr>
                         @empty
                           <tr>
-                            <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
+                            <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap" colspan="7">
                               Belum ada data
                             </td>
                           </tr>
