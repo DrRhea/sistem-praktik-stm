@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Pengajar;
 
 use App\Http\Controllers\Controller;
+use App\Models\Siswa;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PengajarNilaiController extends Controller
@@ -12,23 +14,40 @@ class PengajarNilaiController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request, $id)
     {
-        //
+        $siswa = Siswa::find($id);
+
+        return view('pengajar.nilai.create', compact('siswa'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+      $siswa = Siswa::find($id);
+
+      $validatedData = $request->validate([
+        'praktik_id' => 'required',
+        'nilai' => 'required|numeric',
+      ], [
+        'praktik_id.required' => 'Praktik harus dipilih',
+        'nilai.required' => 'Nilai tidak boleh kosong',
+        'nilai.numeric' => 'Nilai harus berupa angka',
+      ]);
+
+      $nilai = Nilai::createe([
+        'siswa_id' => $id,
+        'praktik_id' => $validatedData['praktik_id'],
+        'nilai' => $validatedData['nilai'],
+      ]);
     }
 
     /**
