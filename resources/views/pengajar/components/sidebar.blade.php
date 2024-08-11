@@ -19,7 +19,7 @@
         <!-- Profile and Logout -->
         <li class="mt-auto -mx-6">
           <a href="{{ route('pengajar.profile.index') }}" class="flex items-center px-6 py-3 text-sm font-semibold leading-6 text-white gap-x-4 hover:bg-gray-800">
-            <img class="w-8 h-8 bg-gray-800 rounded-md" src="{{ Auth::user()->foto_profile ? asset('img/photo_profile/' . Auth::user()->foto_profile) : asset('img/photo_profile/default.png') }}" alt="">
+            <img class="w-8 h-8 bg-gray-800 rounded-md object-cover" src="{{ Auth::user()->foto_profile ? asset('img/photo_profile/' . Auth::user()->foto_profile) : asset('img/photo_profile/default.png') }}" alt="">
             <span class="sr-only">Your profile</span>
             <span aria-hidden="true">{{ ucwords(Auth::user()->nama_lengkap) }}</span>
           </a>
