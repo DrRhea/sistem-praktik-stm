@@ -11,19 +11,19 @@
 <div x-data="{ open: false }" @keydown.window.escape="open = false">
 
   <!-- Mobile Navbar -->
-  @include('admin.components.navbar')
+  @include('pengajar.components.navbar')
 
   <!-- Desktop Sidebar -->
-  @include('admin.components.sidebar')
+  @include('pengajar.components.sidebar')
 
   <!-- Header Sidebar -->
-  @include('admin.components.header')
+  @include('pengajar.components.header')
 
   <main class="py-10 lg:pl-72">
     <div class="px-4 sm:px-6 lg:px-8">
-        <div class="relative overflow-hidden rounded-xl">
-          {{-- Placeholder --}}
-        </div>
+      <div class="relative overflow-hidden rounded-xl">
+        {{-- Placeholder --}}
+      </div>
     </div>
   </main>
 </div>

@@ -30,7 +30,7 @@
               <p class="mt-1 text-sm leading-6 text-gray-400">Masukkan nama lengkap dan email yang sesuai.</p>
             </div>
 
-            <form class="md:col-span-2" action="{{ route('admin.profile.update', ['id' => Auth::user()->id]) }}" method="POST" enctype="multipart/form-data">
+            <form class="md:col-span-2" action="{{ route('pengajar.profile.update', ['id' => Auth::user()->id]) }}" method="POST" enctype="multipart/form-data">
               @csrf
               @method('PUT')
               <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6">
@@ -85,7 +85,7 @@
               <p class="mt-1 text-sm leading-6 text-gray-400">Perbarui kata sandi Anda yang terkait dengan akun Anda.</p>
             </div>
 
-            <form class="md:col-span-2" action="{{ route('admin.profile.updatePassword') }}" method="POST">
+            <form class="md:col-span-2" action="{{ route('pengajar.profile.updatePassword') }}" method="POST">
               @csrf
               @method('PATCH')
 
@@ -132,17 +132,6 @@
               </div>
             </form>
           </div>
-
-          {{--          <div class="grid grid-cols-1 px-4 py-16 max-w-7xl gap-x-8 gap-y-10 sm:px-6 md:grid-cols-3 lg:px-8">--}}
-          {{--            <div>--}}
-          {{--              <h2 class="text-base font-semibold leading-7 text-white">Hapus Akun</h2>--}}
-          {{--              <p class="mt-1 text-sm leading-6 text-gray-400">Tidak ingin menggunakan layanan kami lagi? Anda dapat menghapus akun Anda di sini. Tindakan ini tidak dapat dibatalkan. Semua informasi terkait akun ini akan dihapus secara permanen.</p>--}}
-          {{--            </div>--}}
-
-          {{--            <form class="flex items-start md:col-span-2">--}}
-          {{--              <button type="submit" class="px-3 py-2 text-sm font-semibold text-white bg-red-500 rounded-md shadow-sm hover:bg-red-400">Ya, hapus akun saya</button>--}}
-          {{--            </form>--}}
-          {{--          </div>--}}
         </div>
       </div>
     </div>
