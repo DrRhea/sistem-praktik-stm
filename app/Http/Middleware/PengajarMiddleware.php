@@ -19,19 +19,10 @@ class PengajarMiddleware
     {
       $user = Auth::user();
 
-      if ($user->role != 'pengajar' && $user->role != 'admin') {
+      if ($user->role != 'pengajar' && $user->role != 'admin')
         return redirect(route('siswa'));
-      } elseif ($user->role != 'pengajar' && $user->role != 'siswa') {
-        $admin = Admin::where('user_id', $user->id)->first();
-
-        if($admin && $admin->status == 'pending')
-          return redirect(route('admin.pending'));
-        elseif ($admin && $admin->status == 'diterima')
-          return redirect(route('admin'));
-        elseif ($admin && $admin->status == 'ditolak')
-          return redirect(route('admin.ditolak'));
-
-      }
+      elseif ($user->role != 'pengajar' && $user->role != 'siswa')
+        return redirect(route('admin'));
 
         return $next($request);
     }

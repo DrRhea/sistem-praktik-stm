@@ -31,7 +31,7 @@ class LoginController extends Controller
     $credentials = $request->only('email', 'password');
 
     $user = User::where('email', $request->email)->first();
-    if($user->role == 'admin') {
+    if($user && $user->role == 'admin') {
       $admin = Admin::where('user_id', $user->id)->first();
 
       if ($admin && $admin->status == 'pending') {
