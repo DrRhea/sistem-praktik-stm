@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Pengajar;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pengajar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PengajarProfileController extends Controller
 {
@@ -12,7 +14,10 @@ class PengajarProfileController extends Controller
      */
     public function index()
     {
-        //
+      $user = Auth::user();
+      $pengajar = Pengajar::where('user_id', $user->id)->with('user')->first();
+
+      return view('pengajar.profile', compact('pengajar'));
     }
 
     /**
