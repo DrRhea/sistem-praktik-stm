@@ -34,9 +34,6 @@
                       <h1 class="text-base font-semibold leading-6 text-white">Daftar Kegiatan Praktik</h1>
                       <p class="mt-2 text-sm text-gray-300"></p>
                     </div>
-                    <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                      <a href="{{ route('admin.nilai.create') }}" class="block px-3 py-2 text-sm font-semibold text-center text-white bg-indigo-500 rounded-md hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Tambah</a>
-                    </div>
                   </div>
                   <div class="flow-root mt-8">
                     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -45,8 +42,8 @@
                           <thead>
                           <tr>
                             <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">No.</th>
-                            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">Siswa</th>
-                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Praktik</th>
+                            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">Kelas</th>
+                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Kegiatan Praktik</th>
                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Nilai</th>
                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Pengajar</th>
                             <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
@@ -55,11 +52,31 @@
                           </tr>
                           </thead>
                           <tbody>
+                          @forelse($nilais as $nilai)
                             <tr>
-                              <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap" colspan="6">
+                              <td class="py-4 pl-4 pr-3 text-sm font-medium text-white whitespace-nowrap sm:pl-0">
+                                {{ $loop->iteration }}
+                              </td>
+                              <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
+                                {{ $nilai->praktik->kelas->kelas }} - {{ $nilai->praktik->kelas->jurusan }}
+                              </td>
+                              <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
+                                {{ $nilai->praktik->judul }}
+                              </td>
+                              <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
+                                {{ $nilai->nilai }}
+                              </td>
+                              <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
+                                {{ $nilai->praktik->pengajar->user->nama_lengkap }}
+                              </td>
+                            </tr>
+                          @empty
+                            <tr>
+                              <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
                                 Belum ada data
                               </td>
                             </tr>
+                          @endforelse
                           </tbody>
                         </table>
                       </div>
