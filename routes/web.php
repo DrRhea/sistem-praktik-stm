@@ -1,5 +1,6 @@
 <?php
 
+  use App\Http\Controllers\Admin\AdminApproveController;
   use App\Http\Controllers\Admin\AdminController;
   use App\Http\Controllers\Admin\AdminJadwalController;
   use App\Http\Controllers\Admin\AdminKelasController;
@@ -79,6 +80,10 @@
     Route::put('pengajar/ubah/{id}', [AdminPengajarController::class, 'update'])->name('admin.pengajar.update');
     Route::patch('pengajar/reset/{id}', [AdminPengajarController::class, 'resetPassword'])->name('admin.pengajar.resetPassword');
     Route::delete('pengajar/hapus/{id}', [AdminPengajarController::class, 'destroy'])->name('admin.pengajar.delete');
+
+    Route::get('approve/', [AdminApproveController::class, 'index'])->name('admin.approve.index');
+    Route::patch('approve/terima/{id}', [AdminApproveController::class, 'terima'])->name('admin.approve.terima');
+    Route::patch('approve/tolak/{id}', [AdminApproveController::class, 'tolak'])->name('admin.approve.tolak');
 
     Route::get('profile/', [AdminProfileController::class, 'index'])->name('admin.profile.index');
     Route::put('profile/update/{id}', [AdminProfileController::class, 'update'])->name('admin.profile.update');

@@ -16,7 +16,7 @@
   <!-- Desktop Sidebar -->
   @include('admin.components.sidebar')
 
-  <!-- Desktop Sidebar -->
+  <!-- Desktop Header -->
   @include('admin.components.header')
 
   <main class="py-10 lg:pl-72">

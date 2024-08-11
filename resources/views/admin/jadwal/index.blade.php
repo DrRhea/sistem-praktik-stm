@@ -16,6 +16,9 @@
   <!-- Desktop Sidebar -->
   @include('admin.components.sidebar')
 
+  <!-- Desktop Header -->
+  @include('admin.components.header')
+
   <main class="py-10 lg:pl-72">
     <!-- Alerts -->
     @include('admin.components.alerts')
@@ -46,7 +49,6 @@
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Hari</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Waktu</th>
                           <th scope="col" class="px-3 py-3.0 text-center text-sm font-semibold text-white">Aksi</th>
-
                           <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
                             <span class="sr-only">Edit</span>
                           </th>

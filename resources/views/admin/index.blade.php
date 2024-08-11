@@ -11,13 +11,13 @@
 <div x-data="{ open: false }" @keydown.window.escape="open = false">
 
   <!-- Mobile Navbar -->
-  @include('pengajar.components.navbar')
+  @include('admin.components.navbar')
 
   <!-- Desktop Sidebar -->
-  @include('pengajar.components.sidebar')
+  @include('admin.components.sidebar')
 
   <!-- Header Sidebar -->
-  @include('pengajar.components.header')
+  @include('admin.components.header')
 
   <main class="py-10 lg:pl-72">
     <div class="px-4 sm:px-6 lg:px-8">
