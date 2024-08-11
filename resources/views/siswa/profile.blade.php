@@ -30,7 +30,7 @@
               <p class="mt-1 text-sm leading-6 text-gray-400">Masukkan nama lengkap dan email yang sesuai.</p>
             </div>
 
-            <form class="md:col-span-2" action="{{ route('admin.profile.update', ['id' => Auth::user()->id]) }}" method="POST" enctype="multipart/form-data">
+            <form class="md:col-span-2" action="{{ route('siswa.profile.update', ['id' => Auth::user()->id]) }}" method="POST" enctype="multipart/form-data">
               @csrf
               @method('PUT')
               <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6">
@@ -85,7 +85,7 @@
               <p class="mt-1 text-sm leading-6 text-gray-400">Perbarui kata sandi Anda yang terkait dengan akun Anda.</p>
             </div>
 
-            <form class="md:col-span-2" action="{{ route('admin.profile.updatePassword') }}" method="POST">
+            <form class="md:col-span-2" action="{{ route('siswa.profile.updatePassword') }}" method="POST">
               @csrf
               @method('PATCH')
 
