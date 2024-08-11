@@ -40,17 +40,46 @@
                           <thead>
                           <tr>
                             <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">No.</th>
-                            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">Kelas</th>
+                            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">Siswa</th>
+                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Kelas</th>
                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Kegiatan Praktik</th>
                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Nilai</th>
-                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Pengajar</th>
+                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Beri Nilai</th>
                             <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
                               <span class="sr-only">Edit</span>
                             </th>
                           </tr>
                           </thead>
                           <tbody>
-                            <!-- Data rows will go here -->
+                            @forelse( $siswa as $s )
+                              <tr>
+                                <td class="py-4 pl-4 pr-3 text-sm font-medium text-white whitespace-nowrap sm:pl-0">
+                                  {{ $loop->iteration }}
+                                </td>
+                                <td class="py-4 pl-4 pr-3 text-sm font-medium text-white whitespace-nowrap sm:pl-0">
+                                  {{ $s->user->nama_lengkap }}
+                                </td>
+                                <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
+                                  {{ $s->kelas->kelas }} - {{ $s->kelas->jurusan }}
+                                </td>
+                                <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
+                                  {{ \App\Models\Praktik::where('kelas_id', $s->kelas->id)->first()->judul }}
+                                </td>
+                                <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
+                                  @if(\App\Models\Nilai::where('siswa_id', $s->id)->first() != null)
+                                    {{ \App\Models\Nilai::where('siswa_id', $s->id)->first()->nilai }}
+                                  @else
+                                    0
+                                  @endif
+                                </td>
+                                <td class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
+                                  <span class="inline-flex rounded-md shadow-sm isolate">
+                                    <a href="nilai/tambah/{{ $s->id }}" class="relative inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-gray-800 rounded-md ring-1 ring-inset ring-gray-300/20 hover:bg-gray-900 focus:z-10">Beri Nilai</a>
+                                  </span>
+                                </td>
+                              </tr>
+                            @empty
+                            @endforelse
                           </tbody>
                         </table>
                       </div>
