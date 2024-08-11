@@ -39,8 +39,10 @@
                       <table class="min-w-full divide-y divide-gray-700">
                         <thead>
                         <tr>
-                          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">Kelas</th>
-                          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Jurusan</th>
+                          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">Praktik</th>
+                          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Pengajar</th>
+                          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Hari</th>
+                          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Waktu</th>
                           <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Aksi</th>
                           <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
                             <span class="sr-only">Edit</span>
@@ -48,19 +50,19 @@
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-800">
-                        @forelse($praktiks as $praktik)
+                        @forelse($jadwals as $jadwal)
                         <tr>
                           <td class="py-4 pl-4 pr-3 text-sm font-medium text-white whitespace-nowrap sm:pl-0">
-                            {{ $praktik->pengajar->user->nama_lengkap }}
+                            {{ $jadwal->praktik->judul }}
                           </td>
                           <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
-                            {{ $praktik->kelas->kelas }} - {{ $praktik->kelas->jurusan }}
+                            {{ $jadwal->praktik->pengajar->user->nama_lengkap }}
                           </td>
                           <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
-                            {{ $praktik->judul }}
+                            {{ $jadwal->hari }}
                           </td>
                           <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
-                            {{ $praktik->deskripsi }}
+                            {{ $jadwal->jam_mulai }} - {{ $jadwal->jam_selesai }}
                           </td>
                           <td class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-0">
                               <span class="inline-flex rounded-md shadow-sm isolate">
@@ -70,6 +72,11 @@
                           </td>
                         </tr>
                         @empty
+                        <tr>
+                          <td class="px-3 py-4 text-sm text-gray-300 whitespace-nowrap">
+                            Belum ada data
+                          </td>
+                        </tr>
                         @endforelse
                         </tbody>
                       </table>

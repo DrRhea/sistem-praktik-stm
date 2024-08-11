@@ -22,7 +22,7 @@ class AdminKelasController extends Controller
    */
   public function create()
   {
-    //
+    return view('admin.kelas.create');
   }
 
   /**
@@ -30,7 +30,28 @@ class AdminKelasController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    $validatedData = $request->validate([
+      'jurusan' => 'required',
+    ], [
+      'jurusan.required' => 'Jurusan tidak boleh kosong',
+    ]);
+
+    $kelasX = Kelas::create([
+      'kelas' => 'X',
+      'jurusan' => $request->jurusan,
+    ]);
+
+    $kelasXI = Kelas::create([
+      'kelas' => 'XI',
+      'jurusan' => $request->jurusan,
+    ]);
+
+    $kelasXII = Kelas::create([
+      'kelas' => 'XII',
+      'jurusan' => $request->jurusan,
+    ]);
+
+    return redirect()->route('admin.kelas.index')->with('success', 'Data Kelas berhasil ditambahkan');
   }
 
   /**
@@ -62,6 +83,23 @@ class AdminKelasController extends Controller
    */
   public function destroy(string $id)
   {
-    //
+    // Mencari data kelas berdasarkan ID
+    $kelas = Kelas::find($id);
+
+    // Pengecekan apakah data kelas ditemukan
+    if (!$kelas) {
+      return redirect()->route('admin.kelas.index')->with('error', 'Data Kelas tidak ditemukan');
+    }
+
+    // Pengecekan apakah data kelas terkait dengan data praktik atau entitas lain
+    if ($kelas->praktik()->exists()) {
+      return redirect()->route('admin.kelas.index')->with('error', 'Data Kelas tidak bisa dihapus karena terkait dengan data praktik.');
+    }
+
+    // Menghapus data kelas
+    $kelas->delete();
+
+    // Mengembalikan respons redirect dengan pesan sukses
+    return redirect()->route('admin.kelas.index')->with('success', 'Data Kelas berhasil dihapus');
   }
 }

@@ -13,4 +13,9 @@ class Kelas extends Model
     'kelas',
     'jurusan',
   ];
+
+  public function praktik()
+  {
+    return $this->hasMany(Praktik::class);
+  }
 }
